@@ -13,7 +13,7 @@ namespace Menu
                 Console.WriteLine("(+) Adição");
                 Console.WriteLine("(+) Adição");
             }
-            return opcao = Console.WriteLine();
+            return opcao = Console.ReadLine();
         }
     }
 }
