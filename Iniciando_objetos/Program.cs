@@ -1,39 +1,57 @@
-﻿int n1;
-int n2;
+﻿using Calculadora;
+using Menu;
 
-Console.WriteLine("Calculadora: ");
-Console.Write("Digite o primeiro número");
-if(int.TryParse(Console.ReadLine(), out n1)){
-Console.Write("Digite o segundo número");
-if(int.TryParse(Console.ReadLine(), out n2)){
+Console.Clear();
 
-Console.Write("Qual tipo de operação você quer: ");
-Console.WriteLine("(+) Adição");
-Console.WriteLine("(-) Subtração");
-Console.WriteLine("(*) Multiplicação");
-Console.WriteLine("(/) Divisão");
+decimal n1;
+decimal n2;
 
-if(!int.TryParse(Console.ReadLine(),out int operacao))
+Console.WriteLine("Calculadora");
+
+return1:
+
+Console.Write("\nDigite o primeiro número: ");
+if (decimal.TryParse(Console.ReadLine(), out n1))
 {
-    switch(operacao)
+
+    MenuOperacoes.ImprimirMenu();
+
+    string operacao = Console.ReadLine();
+
+return2:
+
+    Console.Write("\nDigite o segundo número: ");
+    if (decimal.TryParse(Console.ReadLine(), out n2))
     {
-        case '+':
-        Console.WriteLine($"O resultado da adição é: {n1+n2}");
-        break;
-    
-        case '-':
-        Console.WriteLine($"O resultado da subtração é: {n1-n2}");
-        break;
+        switch (operacao)
+        {
+            case "+":
+                Operacoes.Adicao(n1, n2);
+                break;
 
-        case '*':
-        Console.WriteLine($"O resultado da multiplicação é: {n1*n2}");
-        break;
+            case "-":
+                Operacoes.Subtraçao(n1, n2);
+                break;
 
-        case '/':
-        Console.WriteLine($"O resultado da operação é: {n1/n2}");
-        break;
+            case "*":
+                Operacoes.Multiplicacao(n1, n2);
+                break;
+
+            case "/":
+                Operacoes.Divisao(n1, n2);
+                break;
+        }
+
     }
+    else
+    {
+        Console.Write("Segundo número digitado errado.");
+        goto return2;
+    }
+}
 
-}
-}
+else
+{
+    Console.Write("Primeiro número digitado errado.");
+    goto return1;
 }

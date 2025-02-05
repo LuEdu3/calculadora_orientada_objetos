@@ -1,18 +1,15 @@
-// using System.Runtime.CompilerServices;
-
-// namespace Menu
-// {
-//     public class Navegacao
-//     {
-//         public static string ImprimirMenu()
-//         {
-//             string opcao = "";
-//             do
-//             {
-//                 Console.WriteLine("\nCalculadora");
-//                 Console.WriteLine("(+) Adição");
-//             }
-//             return opcao = Console.ReadLine();
-//         }
-//     }
-// }
+namespace Menu
+{
+    public class MenuOperacoes
+    {
+        public static void ImprimirMenu()
+        {
+            Console.Write("Qual tipo de operação você quer: ");
+            Console.WriteLine("\n(+) Adição");
+            Console.WriteLine("(-) Subtração");
+            Console.WriteLine("(*) Multiplicação");
+            Console.WriteLine("(/) Divisão");
+            Console.Write("\nDigite: ");
+        }
+    }
+}
